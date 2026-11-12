@@ -1,0 +1,101 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar__logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.navbar__logo span {
+  font-weight: 500;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar__menu a:not(.btn) {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.navbar__menu a:not(.btn):hover,
+.navbar__menu a.active {
+  border-bottom-color: var(--ink);
+}
+
+.navbar__menu .btn {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* Botão hambúrguer (só aparece no mobile) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+
+  .navbar__menu.is-open {
+    display: flex;
+  }
+
+  .navbar__menu a:not(.btn) {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar__menu .btn {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
