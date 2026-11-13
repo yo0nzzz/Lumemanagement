@@ -5,19 +5,13 @@ import Footer from './Footer.jsx'
 
 export default function Layout() {
   const { pathname } = useLocation()
-
-  // Volta ao topo ao trocar de página
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
 
   return (
     <>
       <Navbar />
-      <main className="main">
-        <Outlet />
-      </main>
-      <Footer />
+      <main className="main"><Outlet /></main>
+      {pathname !== '/' && <Footer />}
     </>
   )
 }
